@@ -1,5 +1,8 @@
-package com.mycompany.user;
+package com.mycompany.controllers;
 
+import com.mycompany.user.User;
+import com.mycompany.user.UserNotFoundException;
+import com.mycompany.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
