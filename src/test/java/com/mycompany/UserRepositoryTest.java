@@ -21,19 +21,20 @@ public class UserRepositoryTest {
     @Test
     public void testAddNew() {
         User user = new User();
-        user.setFirstName("Michael");
-        user.setLastName("Kors");
+        user.setFirstName("Anika");
+        user.setLastName("Miness");
         user.setSex("M");
-        user.setEmail("mks@gmail.com");
-        user.setTel_number("00339943434");
-        user.setPesel("77995343355");
-        user.setNationality("POR");
-        user.setDocument_number("799545933535");
-        user.setBank_account_number("595343888");
+        user.setEmail("aminess@gmail.com");
+        user.setTel_number("9976579943434");
+        user.setPesel("73399245755343355");
+        user.setNationality("GER");
+        user.setDocument_number("GER97999545933535");
+        user.setBank_account_number("597792V883447343888");
 
         User savedUser = repo.save(user);
 
         Assertions.assertThat(savedUser).isNotNull();
+        Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
     }
 
     @Test
@@ -48,20 +49,20 @@ public class UserRepositoryTest {
 
     @Test
     public void testUpdate() {
-        Integer userId = 3;
+        Integer userId = 15;
         Optional<User> optionalUser = repo.findById(userId);
         User user = optionalUser.get();
 
-        user.setEmail("na@gmail.com");
+        user.setMove_in_date("30.07.2021");
         repo.save(user);
 
         User updateUser = repo.findById(userId).get();
-        Assertions.assertThat(updateUser.getEmail()).isEqualTo("na@gmail.com");
+        Assertions.assertThat(updateUser.getMove_in_date()).isEqualTo("30.07.2021");
     }
 
     @Test
     public void testGet() {
-        Integer userId = 22;
+        Integer userId = 12;
         Optional<User> optionalUser = repo.findById(userId);
         Assertions.assertThat(optionalUser).isPresent();
         System.out.println(optionalUser.get());
@@ -69,7 +70,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testDelete() {
-        Integer userId = 39;
+        Integer userId = 17;
         repo.deleteById(userId);
 
         Optional<User> optionalUser = repo.findById(userId);

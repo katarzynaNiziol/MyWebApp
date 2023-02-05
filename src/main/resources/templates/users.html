@@ -17,7 +17,7 @@
   </div>
 
   <div>
-    <table class="table table-bordered">
+    <table class="table table-striped table-light table-bordered table-responsive table-hover">
       <thead class="thead-dark">
        <tr>
          <th>ID</th>
@@ -32,6 +32,7 @@
          <th>Bank account number</th>
          <th>Move in</th>
          <th>Move out</th>
+         <th>Address</th>
          <th></th>
        </tr>
       </thead>
@@ -50,7 +51,7 @@
           <td>[[${user.bank_account_number}]]</td>
           <td>[[${user.move_in_date}]]</td>
           <td>[[${user.move_out_date}]]</td>
-
+          <td>[[${user.address}]]</td>
           <td>
             <a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.id}}">Edit</a>
             <a class="h4" th:href="@{'/users/delete/' + ${user.id}}">Delete</a>

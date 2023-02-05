@@ -22,7 +22,7 @@ public class User {
     @Column(unique = true, length = 45)
     private String email;
 
-    @Column(length = 12)
+    @Column(length = 20)
     private String tel_number;
 
     @Column(unique = true, length = 45, name = "PESEL")
@@ -42,6 +42,11 @@ public class User {
 
     @Column(length = 45, name = "move_out_date")
     private String move_out_date;
+
+    @Column(length = 50, name = "address")
+    private String address;
+
+    private boolean enabled;
 
     public Integer getId() {
         return id;
@@ -140,21 +145,24 @@ public class User {
         this.move_out_date = move_out_date;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", sex='" + sex + '\'' +
-                ", email='" + email + '\'' +
-                ", tel_number='" + tel_number + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", nationality='" + nationality + '\'' +
-                ", document_number='" + document_number + '\'' +
-                ", bank_account_number='" + bank_account_number + '\'' +
-                ", move_in_date='" + move_in_date + '\'' +
-                ", move_out_date='" + move_out_date + '\'' +
-                '}';
+        return "User{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", sex='" + sex + '\'' + ", email='" + email + '\'' + ", tel_number='" + tel_number + '\'' + ", pesel='" + pesel + '\'' + ", nationality='" + nationality + '\'' + ", document_number='" + document_number + '\'' + ", bank_account_number='" + bank_account_number + '\'' + ", move_in_date='" + move_in_date + '\'' + ", move_out_date='" + move_out_date + '\'' + ", address='" + address + '\'' + '}';
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

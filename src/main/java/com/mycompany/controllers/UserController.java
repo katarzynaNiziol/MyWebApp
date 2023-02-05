@@ -1,8 +1,8 @@
 package com.mycompany.controllers;
 
+import com.mycompany.service.UserService;
 import com.mycompany.user.User;
 import com.mycompany.user.UserNotFoundException;
-import com.mycompany.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +15,7 @@ import java.util.List;
 
 @Controller
 public class UserController {
+
     @Autowired
     private UserService service;
 
@@ -44,7 +45,7 @@ public class UserController {
         try {
             User user = service.get(id);
             model.addAttribute("user", user);
-            model.addAttribute("pageTitle", "Edit user (ID: "+ id + ")");
+            model.addAttribute("pageTitle", "Edit user (ID: " + id + ")");
             return "user_form";
 
         } catch (UserNotFoundException e) {
@@ -56,10 +57,7 @@ public class UserController {
     @GetMapping("/users/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes ra) {
         try {
-           service.delete(id);
-            ra.addFlashAttribute("message", "The user ID " + id + " has been deleted");
-           return "user_form";
-
+            service.delete(id);
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
 

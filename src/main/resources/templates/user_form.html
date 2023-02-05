@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.thymeleaf.org ">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>[[${pageTitle}]]</title>
@@ -12,18 +11,20 @@
 
     <form th:action="@{/users/save}" method="post" th:object="${user}"
           style="max-width: 500px; margin: 0 auto;">
-       <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{id}">
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">First Name:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{firstName}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{firstName}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Last Name:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{lastName}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{lastName}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
@@ -41,7 +42,8 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Telephone number:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{tel_number}" class="form-control" required minlength="2" maxlength="12"/>
+                    <input type="text" th:field="*{tel_number}" class="form-control" required minlength="2"
+                           maxlength="20"/>
                 </div>
             </div>
             <div class="form-group row">
@@ -53,33 +55,66 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Nationality:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{nationality}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{nationality}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Document number:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{document_number}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{document_number}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Bank account number:</label>
+                <label class="col-sm-4 col-form-label">Bank account:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{bank_account_number}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{bank_account_number}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Move in:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{move_in_date}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{move_in_date}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Move out:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{move_out_date}" class="form-control" required minlength="2" maxlength="45"/>
+                    <input type="text" th:field="*{move_out_date}" class="form-control" required minlength="2"
+                           maxlength="45"/>
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Address:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{address}" class="form-control" required minlength="2"
+                           maxlength="45"/>
+                </div>
+            </div>
+
+
+            <fieldset>
+                <legend>Choose city</legend>
+                <div>
+                    <select>
+                        <option>Warsaw</option>
+                        <option>Lublin</option>
+                        <option>Wroclaw</option>
+                        <option>Łódź</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Documents</legend>
+                <input type="file" name="" value="" enctype="multipart/form-data" multiple>
+                <input type="submit" name="" value="Send email" formtarget="formularze_atrybuty.html">
+            </fieldset>
+
+
             <div class="text-center">
                 <button type="submit" class="btn btn-primary m-2">Save</button>
                 <button type="button" class="btn btn-secondary m-2" onclick="cancelForm()">Cancel</button>
@@ -90,9 +125,8 @@
 </div>
 <script type="text/javascript">
     function cancelForm() {
-    window.location = "[[@{/users}]]"
+    window.location = "[[@{/users}]]";
     }
-
 </script>
 </body>
 </html>
