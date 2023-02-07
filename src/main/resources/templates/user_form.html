@@ -7,10 +7,13 @@
 </head>
 <body>
 <div class="container-fluid">
+    <br>
+    <br>
     <div class="text-center"><h2>[[${pageTitle}]]</h2></div>
-
+    <br>
+    <br>
     <form th:action="@{/users/save}" method="post" th:object="${user}"
-          style="max-width: 500px; margin: 0 auto;">
+          style="max-width: 500px; margin: 0 auto">
         <input type="hidden" th:field="*{id}">
         <div class="border border-secondary rounded p-3">
             <div class="form-group row">
@@ -95,24 +98,24 @@
                 </div>
             </div>
 
-
-            <fieldset>
-                <legend>Choose city</legend>
-                <div>
-                    <select>
-                        <option>Warsaw</option>
+            <form>
+                <fieldset>
+                    <legend>City</legend>
+                    <select name="city" id="standard-select">
+                        <option>Warszawa</option>
                         <option>Lublin</option>
-                        <option>Wroclaw</option>
                         <option>Łódź</option>
+                        <option>Wrocław</option>
+                        <option>Gdańsk</option>
                     </select>
-                </div>
-            </fieldset>
+                </fieldset>
+            </form>
 
-            <fieldset>
-                <legend>Documents</legend>
-                <input type="file" name="" value="" enctype="multipart/form-data" multiple>
-                <input type="submit" name="" value="Send email" formtarget="formularze_atrybuty.html">
-            </fieldset>
+            <!--            <fieldset>-->
+            <!--                <legend>Documents</legend>-->
+            <!--                <input type="file" name="" value="" enctype="multipart/form-data" multiple>-->
+            <!--                <input type="submit" name="" value="Send email" formtarget="formularze_atrybuty.html">-->
+            <!--            </fieldset>-->
 
 
             <div class="text-center">
@@ -127,6 +130,10 @@
     function cancelForm() {
     window.location = "[[@{/users}]]";
     }
+
+
+
+
 </script>
 </body>
 </html>
